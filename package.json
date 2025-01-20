@@ -1,0 +1,27 @@
+{
+  "name": "youtube-clone-2025",
+  "version": "1.0.0",
+  "description": "OW potg",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BeomGi-Jeon/youtube-clone-2025.git"
+  },
+  "scripts": {
+    "dev": "nodemon --exec babel-node index.js"
+  },
+  "author": "BeomGi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BeomGi-Jeon/youtube-clone-2025/issues"
+  },
+  "homepage": "https://github.com/BeomGi-Jeon/youtube-clone-2025#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/node": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "nodemon": "^3.1.9"
+  }
+}
