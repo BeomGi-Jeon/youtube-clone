@@ -1,0 +1,27 @@
+.navigation-section
+    header.navigation
+        a.logo(href="/")
+            h1 POTG
+            em BOX
+        nav.navigation-right
+            if loggedIn
+                a(href="/users/edit")
+                    .profile
+                        .profile__avatar
+                            i.fas.fa-user
+                        .profile__info
+                            span.profile__name #{loggedInUser.username}               
+                a.profile__btn(href=`/users/${loggedInUser._id}`)
+                    i.fas.fa-list
+                a.profile__btn(href="/users/logout")
+                    i.fa-solid.fa-right-from-bracket
+            else 
+                a(href=`/login`)
+                    .profile
+                        .profile__avatar
+                            i.fas.fa-user
+                        .profile__info
+                            span.profile__name 로그인
+                a.register__btn(href=`/join`) 회원가입
+block scripts
+    script(src="/static/js/header.js") 

@@ -1,0 +1,18 @@
+extends base
+
+
+block content
+    .welcome-header
+        h1.welcome-header__title POTGBOX 로그인
+        p.welcome-header__text 기존 계정으로 로그인하세요
+    if errorMessage
+        p.errorMessage=errorMessage
+    form(method="POST" class="login-form")
+        input(placeholder="Username", name="username", type="text", required, autocomplete="new-password")
+        input(placeholder="Password", name="password", type="password", required,  autocomplete="new-password")
+        input(type="submit", value="Login")
+
+    div.login_go-register
+        span Don't have an account?
+        em
+            a(href="/join") Create one now &rarr;

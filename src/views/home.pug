@@ -1,0 +1,28 @@
+extends base
+include mixins/video
+
+block content
+    div(style="display:flex; flex-direction:column")
+        .video-section
+            .video-grid
+                if loggedIn
+                    a.video-area.add-area(href="/videos/upload")
+                        .video-mixin_thumb
+                        .video-mixin__data
+                            .video-mixin__meta
+                                div 0 mins
+                                div 0 views
+                else 
+                    a.video-area.add-area(href="/login")
+                        .video-mixin_thumb
+                        .video-mixin__data
+                            .video-mixin__meta
+                                div 0 mins
+                                div 0 views
+                if videos && videos.length > 0
+                    each video in videos
+                        +video(video)
+                else
+                    p(style="text align:center;") No videos found.
+        a(href="/search" style="width:100%; justify-content:center; text-align:center; display:flex; font-size:2.2rem; position:relative; top:7rem;")
+            i.fa.fa-search 

@@ -1,0 +1,36 @@
+doctype html
+html(lang="ko")
+    head
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css")
+        link(rel="stylesheet", href="/static/css/styles.css")
+        title #{pageTitle} | POTGBOX
+    body
+    .main-content
+      .section.masthead
+        .masthead_video
+          iframe#player(width="100%" height="100%" src="https://www.youtube.com/embed/9acxn7qAST4?autoplay=1&mute=1&controls=0&rel=0&showinfo=0&modestbranding=1&iv_load_policy=3&fs=0&cc_load_policy=0&start=30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen)
+        .masthead_text-area
+          h1.masthead_text01 POTG BOX
+          h1.masthead_text02 당신만의 순간을 공유하세요!
+          a(href="/")
+            .masthead_linkbox
+              p.masthead_linktext 바로 가기
+      .section
+        section.typo_area
+          span.typo_text01 POTG
+            em BOX
+          span.typo_text02 SHARE THE
+            em MOMENT
+          span.typo_text03 당신의 멋진 
+            em POTG
+            | 를 공유하세요
+          p.typo_text04
+            | POTG(Play of the Game)는 게임 내에서 뛰어난 순간이나 플레이를 의미합니다.
+            br
+            | 자신이 느꼈던 순간을 다른 사람과 함께해 보세요.
+      .section.pa
+      include partials/footer
+    script(src="https://www.youtube.com/iframe_api")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js")
+    script(src="/static/js/pre.js")

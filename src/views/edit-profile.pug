@@ -1,0 +1,28 @@
+extends base
+
+block content
+    form(method="POST", enctype="multipart/form-data").edit-profile__form
+        label(class="edit-profile_label" for="username") • Username
+        input#username(
+            placeholder="Username",
+            name="username",
+            type="text",
+            required,
+            value=loggedInUser.username,
+            autocomplete="username"
+        )
+        
+        label(class="edit-profile_label" for="email") • Email
+        input#email(
+            placeholder="Email",
+            name="email",
+            type="email",
+            required,
+            value=loggedInUser.email,
+            autocomplete="email"
+        )
+        
+        input(type="submit", value="Update Profile")
+        
+        div.edit-profile__password
+            a(href="change-password") Change Password &rarr;

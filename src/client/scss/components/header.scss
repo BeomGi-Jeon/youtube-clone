@@ -1,0 +1,128 @@
+/* 네비게이션 컨테이너 */
+
+.navigation-section{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:14vh;
+}
+.navigation{
+    padding:1.5rem;
+    display: flex;
+    align-items: center;
+    width: 95vw;}
+
+.logo{
+    padding-right:15px;
+    display: flex;
+    width: 100%;
+    font-style: italic;
+    line-height: 1;
+    font-size:3.9rem;
+    font-weight: 900;
+    letter-spacing: -0.06em;
+}
+.logo em{
+    color: #ff7700;
+}
+
+.navigation-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    gap: 10px; /* profile과 stats 버튼 간격 */
+}
+
+/* 프로필 컨테이너 */
+.profile {
+    width:250px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+/* 아바타 스타일 */
+.profile__avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+}
+
+.profile__avatar i {
+    font-size: 1.5rem;
+}
+
+/* 프로필 정보 스타일 */
+
+.profile__info {
+
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding-left: 15px; 
+}
+
+
+.profile__name {
+    color: black;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+}
+
+
+/* 버튼 스타일 */
+
+.profile__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    width:70px;
+    height: 70px;
+    border-radius: 4px;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.7rem;
+    transition: background-color 0.2s ease;
+    background-color:#f0b851;
+}
+
+.profile__btn:hover {
+    background-color: rgb(222, 95, 25);
+}
+
+
+/**/
+
+.register__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffa500;
+    border: none;
+    width:150px;
+    height: 70px;
+    border-radius: 4px;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.2s ease;
+}

@@ -1,0 +1,128 @@
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); /* 자동으로 채워지되 최소 16rem 크기 */
+    gap: 1.25rem;
+    padding: 1.25rem;
+    width: 90%;
+    max-width: 60rem; /* 최대 너비를 설정하여 3개까지만 보이도록 설정 */
+}
+
+.video-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 0.5rem;
+    height: 13.25rem; /* height를 18rem로 설정하여 기본 크기 확보 */
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+}
+
+.video-area:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.15);
+}
+
+/* Add area 스타일 */
+.video-area.add-area {
+    font-size: 2rem;
+    font-weight: bold;
+    border: 0.125rem dashed rgb(222, 95, 25);
+    border-radius: 0.5rem;
+    position: relative;
+    height: 11.5rem; /* thumb와 동일한 높이로 설정 */
+}
+
+.video-area.add-area:hover {
+    background-color: #fff7e6;
+    border-color: #ffa726;
+}
+
+/* 썸네일 영역 */
+.video-mixin_thumb {
+    background-size:cover;
+    background-position:center;
+    width: 100%;
+    height: 12rem; /* 16:9 비율을 유지하도록 height는 12rem로 설정 */
+    background-color: #ccc;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 0.5rem; /* 상단만 둥글게 처리 */
+}
+
+/* 제목 */
+.video-mixin__title {
+    position: absolute;
+    bottom: 2rem;
+    left: 0.625rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+/* 데이터 (mins, views) */
+.video-mixin__data {
+    background-color: cornflowerblue; /* body의 background 색상과 동일 */
+    padding: 0.375rem; /* data 영역 높이 줄이기 */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 0 0 0.5rem 0.5rem;
+    color: black; /* 텍스트 색상 검정으로 설정 */
+    font-size: 0.875rem;
+    z-index: 1;
+}
+
+/* mins, views를 한 줄로 배치 */
+.video-mixin__meta {
+    display: flex;
+    gap: 1rem;
+}
+
+.video-mixin__meta div {
+    margin-bottom: 0;
+}
+
+/* + 버튼 스타일 */
+.video-area.add-area::before {
+    content: "+";
+    font-size: 3rem;
+    color: #ff7700;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+/* Add Area 스타일에 data 추가 */
+.video-area.add-area .video-mixin__data {
+    display: none; /* 기본적으로 숨기기 */
+}
+
+/* add-area hover 시에도 data 숨기기 */
+.video-area.add-area:hover .video-mixin__data {
+    display: none;
+}
+
+/* Add Video Title 숨기기 */
+.video-area.add-area .video-mixin__title {
+    display: none; /* Add Video 제목 숨기기 */
+}
+
+/* video-area hover 시 data 영역에 hover 효과가 적용되지 않도록 */
+.video-area .video-mixin__data {
+    transition: none; /* hover 시에도 data 영역은 변화하지 않음 */
+}
+
+.video-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vh;
+}
