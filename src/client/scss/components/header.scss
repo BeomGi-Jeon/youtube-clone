@@ -4,19 +4,29 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     height:14vh;
+    padding:5px 3px;
+}
+.navigation-area:first-child{
+    width:auto;
+}
+
+.navigation-area:nth-child(2){
+    width:40%;
+}
+.navigation-area:last-child{
+    width:50%;
+    display: flex;
+    justify-content: flex-end;
 }
 .navigation{
     padding:1.5rem;
     display: flex;
     align-items: center;
-    width: 95vw;}
+    width: 100%;}
 
 .logo{
-    padding-right:15px;
     display: flex;
-    width: 100%;
     font-style: italic;
     line-height: 1;
     font-size:3.9rem;

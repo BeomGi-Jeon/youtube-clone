@@ -4,17 +4,14 @@ const path = require("path");
 const BASE_JS = "./src/client/js/";
 
 module.exports = {
-  mode: 'development',
   entry: {
     header: BASE_JS + "header.js",
     pre: BASE_JS + "pre.js",
     base: BASE_JS + "base.js",
     videoPlayer: BASE_JS + "videoPlayer.js",
     commentSection: BASE_JS + "commentSection.js",
-    recorder: BASE_JS + "recorder.js",
+    thumbnail: BASE_JS + "thumbnail.js",
   },
-  mode: "development",
-  watch: true,
   plugins: [
     new MiniCssExtractPlugin({
       filename: "css/styles.css",
@@ -38,7 +35,15 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", {
+          loader: "sass-loader",
+          options: {
+            sassOptions: {
+              // Deprecated legacy-js-api 경고 차단
+              silenceDeprecations: ['legacy-js-api'],
+            },
+          },
+        },],
       },
     ],
   },

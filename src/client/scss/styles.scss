@@ -13,7 +13,9 @@
 @use "./screens/login" as *;
 @use "./screens/home" as *;
 @use "./screens/upload" as *;
-@use "./screens/watch" as *;
+@use "./screens/watch.scss" as *;
+@use "./screens/search.scss" as*;
+@use "./screens/edit.scss" as*;
 
 
 // Defaults
@@ -31,5 +33,5 @@ body {
 }
 
 em {
-  color: rgb(222, 95, 25);
+  color: #ff7700;
 }

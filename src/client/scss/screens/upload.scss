@@ -1,90 +1,97 @@
 .upload-section {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: start;
-    height:50vh;
-  }
-  
-  .upload-left {
-    width: 28rem; 
-    height:19rem;
-  }
-  
-  .file-box {
-    width: 100%;
-    height: 100%;
-    border: 2px dashed orange;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    color: #333;
-    background-color: #ccc;  
-    border-radius: 0.5rem;
-    font-weight: 800;
-    font-size: 2.2rem;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover; 
-    position: relative;
-  }
-  
-  .file-box p {
-    visibility: visible;  
-  }
-  
-  .file-box[data-background-set="true"] p {
-    visibility: hidden;  
-  }
-  
-  .file-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.15);
-  }
-  
-  
-  .upload-right {
-    width: 35%; 
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    color:black;
-  }
-  
-  .upload-inputbox {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
+  display: flex;
+  justify-content: space-evenly;
+  align-items: start;
+  height: 75vh;
+}
 
-  
- .upload-inputbox input[type="file"] {
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
- .upload-inputbox input[type="text"] {
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
- .upload-inputbox input[type="submit"] {
-    padding: 10px 20px;
-    background-color: orange;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: white;
-    cursor: pointer;
-  }
-  
- .upload-inputbox input[type="submit"]:hover {
-    background-color: darkorange;
-  }
-  
+.upload-left {
+  width: 28rem; 
+  height: 15.75rem;
+}
+
+.file-box {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #ccc;  
+  border-radius: 0.5rem;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  top: 3.625rem;
+}
+
+/* 썸네일 및 영상 스타일 */
+.thumbnail{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;  /* 배경보다 위에 표시 */
+  top: 0;
+  left: 0;
+  z-index: 2;  /* 배경보다 위에 배치 */
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* 기본적으로 썸네일은 보이고, 영상은 숨김 */
+.thumbnail {
+  display: block;
+  opacity: 1;
+}
+
+
+
+#fileText {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #333;
+  z-index: 3;  /* 텍스트가 가장 위에 오도록 설정 */
+}
+
+/* 우측 입력 폼 스타일 */
+.upload-right {
+  width: 35%; 
+  height: 21rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.upload-inputbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* 파일 선택, 텍스트 입력 필드 */
+.upload-inputbox input[type="file"],
+.upload-inputbox input[type="text"] {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* 업로드 버튼 */
+.upload-inputbox input[type="submit"] {
+  padding: 10px 20px;
+  background-color: orange;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+.upload-inputbox input[type="submit"]:hover {
+  background-color: darkorange;
+}

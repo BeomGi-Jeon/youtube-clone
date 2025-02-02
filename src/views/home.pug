@@ -24,5 +24,6 @@ block content
                         +video(video)
                 else
                     p(style="text align:center;") No videos found.
-        a(href="/search" style="width:100%; justify-content:center; text-align:center; display:flex; font-size:2.2rem; position:relative; top:7rem;")
-            i.fa.fa-search 
+        .search-box(style="width: 100%; display: flex; position: relative; top: 7rem; justify-content: center; align-items: center;")
+            a(href="/search", style="width: auto; display: flex; font-size: 2.2rem;")
+                i(class="fa fa-search")

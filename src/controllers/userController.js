@@ -1,5 +1,6 @@
 import User from "../models/User";
 import bcrypt from "bcrypt";
+import Video from "../models/Video";
 
 export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
 export const postJoin = async (req, res) => {
@@ -27,7 +28,7 @@ export const postJoin = async (req, res) => {
     const user = await User.findOne({ username,});
     req.session.loggedIn = true;
     req.session.user= user;
-    return res.redirect("/");
+    return res.redirect("/home");
   } catch (error) {
     return res.status(400).render("join", {
       pageTitle: "Upload Video",
@@ -60,12 +61,12 @@ export const postLogin = async (req, res) => {
   }
   req.session.loggedIn = true;
   req.session.user = user;
-  return res.redirect("/");
+  return res.redirect("/home");
 };
 
 export const logout = (req, res) => {
   req.session.destroy();
-  return res.redirect("/");
+  return res.redirect("/home");
 };
 export const getEdit = (req, res) => {
   return res.render("edit-profile", { pageTitle: "Edit Profile" });
@@ -92,7 +93,7 @@ export const postEdit = async (req, res) => {
 export const getChangePassword = (req, res) => {
   if (req.session.user.socialOnly === true) {
     req.flash("error", "Can't change password.");
-    return res.redirect("/");
+    return res.redirect("/home");
   }
   return res.render("users/change-password", { pageTitle: "Change Password" });
 };
@@ -135,8 +136,9 @@ export const see = async (req, res) => {
   if (!user) {
     return res.status(404).render("404", { pageTitle: "User not found." });
   }
+  const videos = await Video.find({ owner: user._id });
   return res.render("users/profile", {
-    pageTitle: user.username,
-    user,
+    pageTitle: user.name,
+    user,videos,
   });
 };

@@ -1,0 +1,44 @@
+.search__form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 400px;
+    margin: 1rem auto;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.search__form input[type="text"] {
+    flex-grow: 1; /* input이 가로 공간을 채움 */
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search__form button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search__form button:hover {
+    background-color: #45a049;
+}
+
+.search__form i {
+    font-size: 1.2rem;
+}
+
+
+.empty__message {
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center;
+    margin: 20px 0;
+}

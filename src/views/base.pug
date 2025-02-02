@@ -1,6 +1,7 @@
 doctype html
 html(lang="ko")
     head
+        meta(charset = "utf-8")
         title #{pageTitle} | #{siteName}
         link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css")
         link(rel="stylesheet", href="/static/css/styles.css")
@@ -10,5 +11,6 @@ html(lang="ko")
             block content
         include partials/footer
     script(src="/static/js/base.js") 
-    block scripts
+    script(src="/static/js/header.js") 
+    block scripts   
     block errorMessage

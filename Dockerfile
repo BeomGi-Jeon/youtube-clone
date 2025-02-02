@@ -8,6 +8,10 @@ LABEL fly_launch_runtime="Node.js"
 
 # Node.js app lives here
 WORKDIR /app
+COPY public public
+COPY package-lock.json package.json ./
+RUN npm ci
+COPY . .
 
 # Set production environment
 ENV NODE_ENV="production"
@@ -23,6 +27,9 @@ RUN apt-get update -qq && \
 # Install node modules
 COPY package-lock.json package.json ./
 RUN npm ci
+
+# 🔹 `public` 폴더 먼저 복사  
+COPY public public  
 
 # Copy application code
 COPY . .
@@ -40,5 +47,5 @@ RUN apt-get update -qq && \
 COPY --from=build /app /app
 
 # Start the server by default, this can be overwritten at runtime
-EXPOSE 3000
+EXPOSE 4000
 CMD [ "npm", "run", "start" ]

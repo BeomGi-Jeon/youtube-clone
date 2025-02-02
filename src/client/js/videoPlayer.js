@@ -15,7 +15,22 @@ const videoControls = document.getElementById("videoControls");
 let controlsTimeout = null;
 let controlsMovementTimeout = null;
 let volumeValue = 0.5;
+let keyEventsEnabled = false;
+
 video.volume = volumeValue;
+
+const enableKeyboardEvents = () => {
+  if (!keyEventsEnabled) {
+    keyEventsEnabled = true;
+    document.addEventListener("keydown", handleKeydown);
+  }
+};
+const disableKeyboardEvents = () => {
+  if (keyEventsEnabled) {
+    keyEventsEnabled = false;
+    document.removeEventListener("keydown", handleKeydown);
+  }
+};
 
 const handlePlayClick = (e) => {
   if (video.paused) {
@@ -93,11 +108,12 @@ const handleMouseMove = () => {
     controlsMovementTimeout = null;
   }
   videoControls.classList.add("showing");
-  controlsMovementTimeout = setTimeout(hideControls, 3000);
+  controlsMovementTimeout = setTimeout(hideControls, 1500);
+
 };
 
 const handleMouseLeave = () => {
-  controlsTimeout = setTimeout(hideControls, 3000);
+  controlsTimeout = setTimeout(hideControls, 300);
 };
 
 const handleEnded = () => {
@@ -107,7 +123,34 @@ const handleEnded = () => {
   });
 };
 
+const handleKeydown = (event) => {
+  if (!keyEventsEnabled) return; // 클릭 전에는 작동 X
+
+  switch (event.code) {
+    case "Space": // Spacebar → 재생/정지
+      event.preventDefault(); // 페이지 스크롤 방지
+      handlePlayClick();
+      break;
+    case "KeyM": // M → 음소거 토글
+      handleMuteClick();
+      break;
+    case "KeyF": // F → 전체화면 토글
+      handleFullscreen();
+      break;
+    default:
+      break;
+  }
+};
+
+video.addEventListener("click", enableKeyboardEvents);
+document.body.addEventListener("click", (e) => {
+  if (!video.contains(e.target)) {
+    disableKeyboardEvents();
+  }
+});
+
 playBtn.addEventListener("click", handlePlayClick);
+video.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMuteClick);
 volumeRange.addEventListener("input", handleVolumeChange);
 video.addEventListener("loadedmetadata", handleLoadedMetadata);

@@ -3,15 +3,20 @@ include ../mixins/video
 
 
 block content
-    .video-section
-    h1.profile-text(style=" font-weight:800; font-size:2.3rem; margin-top:25px; text-align:center; font-style:italic;") • #{user.username}'s POTG
-        .video-grid
-            if loggedIn
-                a.video-area.add-area(href="/videos/upload")
-                    .video-mixin_thumb
-                    .video-mixin__data
-                        .video-mixin__meta 
-                            div 0 mins 
-                            div 0 views 
-            each video in user.videos
-                +video(video)
+    div(style="display:flex; flex-direction:column;")
+        h1.profile-text(style=" font-weight:800; font-size:2.3rem; margin-top:25px; margin-bottom:3rem; text-align:center; font-style:italic;") • #{user.username}'s POTG
+            em BOX
+        .video-section
+            .video-grid
+                if loggedIn
+                    a.video-area.add-area(href="/videos/upload")
+                        .video-mixin_thumb
+                        .video-mixin__data
+                            .video-mixin__meta 
+                                div 0 mins 
+                                div 0 views   
+
+                        each video in user.videos
+                            +video(video)
+                        else
+                            p(style="text align:center;") No videos found.

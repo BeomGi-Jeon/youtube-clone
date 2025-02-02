@@ -8,16 +8,21 @@ block content
         p.videoError=errorMessage
     form(method="POST", enctype="multipart/form-data", id="uploadForm")
         .upload-section
-            label.upload-left(for="video")
+            .upload-left(for="video")
                 .file-box
-                    p # 파일 선택
+                    img#thumbnail.thumbnail
+                    p#fileText #파일을 선택하세요!
             .upload-right
                 .upload-inputbox
-                    input(type="file", accept="video/*", required, id="video", name="video")
+                    input(type="file", accept="video/*", required, id="fileInput", name="video")
+                    span(style="line-height:0; color:#666;") #Title
                     input(placeholder="Title", required, type="text", name="title", maxlength="10")
+                    span(style="line-height:0; color:#666;") #Description
                     input(placeholder="Description", required, type="text", name="description", minlength="2")
+                    span(style="line-height:0; color:#666;") #Hashtags
                     input(placeholder="Hashtags, separated by comma.", required, type="text", name="hashtags")
+                    input(type="file" style="display:none" required name="thumbnail" id="thumbnailInput")
                     input(type="submit", value="Upload Video")
 
 block scripts
-    script(src="/static/js/recorder.js")
+    script(src="/static/js/thumbnail.js" defer)
